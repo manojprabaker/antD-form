@@ -23,3 +23,65 @@ function App() {
 }
 
 export default App;
+
+
+
+
+// const getConfig = (url, method, contentType, data, sendHeader = true) => {
+//   if (sendHeader) {
+//     return {
+//       url: url,
+//       method: method,
+//       headers: {
+//         "Content-Type": contentType,
+//       },
+//       data: data,
+//     };
+//   } else {
+//     return {
+//       url: url,
+//       method: method,
+//       data: data,
+//     };
+//   }
+// };
+// export const Authentication = async (payload) => {
+//   const response = await axios(
+//     getConfig(
+//       baseUrl + "/collection_authentication" + addOnURL, //api
+//       "post",
+//       "application/json",
+//       JSON.stringify(payload),
+//       shouldISendHeader
+//     )
+//   )
+//     .then((response) => {
+//       return response;
+//     })
+//     .catch((error) => {
+//       return error;
+//     });
+
+//   return response;
+// };
+
+
+
+// function getPostFormDataMethodHeaders(payLoadData) {
+//   const jToken = getJwtAccesToken();
+//   const requestOptions = {
+//     method: "POST",
+//     headers: {
+//       Authorization: "Bearer " + jToken,
+//     },
+//     body: payLoadData,
+//   };
+//   return requestOptions;
+// }
+
+
+// const requestOptions =
+// commonConstants.getPostFormDataMethodHeaders(payload);
+// const response: any = await fetch(URL, requestOptions).catch((error) => {
+// console.log(error);
+// });
