@@ -6,10 +6,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { Table } from "antd";
 import { Button } from "antd";
-import {
-  DeleteFilled,
-  EditFilled 
-} from '@ant-design/icons';
+import { DeleteFilled, EditFilled } from "@ant-design/icons";
 
 const TableData = () => {
   const globalDispatch = useDispatch();
@@ -28,10 +25,11 @@ const TableData = () => {
       title: "Gender",
       dataIndex: "gender",
       key: "gender",
-    },{
+    },
+    {
       title: "Date",
       dataIndex: "date",
-      render:(date)=><>{dateFormatFn(date)}</>
+      render: (date) => <>{dateFormatFn(date)}</>,
     },
 
     {
@@ -39,11 +37,20 @@ const TableData = () => {
       dataIndex: "actions",
       render: (text) => (
         <>
-          <Button type="primary" shape="circle" onClick={() => handleEdit(text)}>
+          <Button
+            type="primary"
+            shape="circle"
+            onClick={() => handleEdit(text)}
+          >
             <EditFilled />
           </Button>{" "}
-          <Button type="primary" danger shape="circle" onClick={() => handleDelete(text)}>
-          <DeleteFilled/>
+          <Button
+            type="primary"
+            danger
+            shape="circle"
+            onClick={() => handleDelete(text)}
+          >
+            <DeleteFilled />
           </Button>
         </>
       ),
@@ -56,22 +63,18 @@ const TableData = () => {
   }, [reduxState?.arr]);
   const pushDataToTable = () => {
     let data = [];
-    if (reduxState?.arr?.length === 0) {
-      setTableData([...data]);
-    } else {
       reduxState?.arr?.forEach((element, index) => {
         data.push({
           key: index,
           name: element?.name,
           email: element?.email,
           gender: element?.gender,
-          date:element?.date,
+          date: element?.date,
           actions: index,
         });
-        
       });
       setTableData([...data]);
-    }
+    
   };
   const triggerSuccessToast = (message) => {
     toast.success(
@@ -118,7 +121,6 @@ const TableData = () => {
     });
   };
   const handleEdit = (index) => {
- 
     globalDispatch(updateReduxState({ editIndex: index }));
     document.documentElement.scrollTop = 0;
   };
@@ -129,7 +131,7 @@ const TableData = () => {
         {/* <table className="table table-hover table-striped table-bordered">
           <thead>
             <tr>
-              <th>Name</th>
+              <th>Name</th> 
               <th>Email</th>
               <th>Gender</th>
               <th>Designation</th>

@@ -77,146 +77,154 @@ const SignupForm = () => {
                 initialValues={editData || initalValues}
                 onSubmit={handleSubmit}
                 validationSchema={signupValidation}
+                validateOnMount
               >
-                {({ values, setFieldValue }) => (
-                  <>
-                    <Form>
-                      <div className="mt-2">
-                        <Field
-                          type="text"
-                          className="form-control"
-                          placeholder="Enter your Name"
-                          name="name"
-                        />
-                        <ErrorMessage
-                          component="label"
-                          name="name"
-                          className="form-label text-danger"
-                        />
-                      </div>
+                {({ values, setFieldValue, dirty}) => {
+                  
+                  return (
+                    <>
+                      <Form>
+                        <div className="mt-2">
+                          <Field
+                            type="text"
+                            className="form-control"
+                            placeholder="Enter your Name"
+                            name="name"
+                          />
+                          <ErrorMessage
+                            component="label"
+                            name="name"
+                            className="form-label text-danger"
+                          />
+                        </div>
 
-                      <div className="mt-2">
-                        <Field
-                          type="email"
-                          className="form-control"
-                          placeholder="Enter your Email"
-                          name="email"
-                        />
-                        <ErrorMessage
-                          component="label"
-                          name="email"
-                          className="form-label text-danger"
-                        />
-                      </div>
+                        <div className="mt-2">
+                          <Field
+                            type="email"
+                            className="form-control"
+                            placeholder="Enter your Email"
+                            name="email"
+                          />
+                          <ErrorMessage
+                            component="label"
+                            name="email"
+                            className="form-label text-danger"
+                          />
+                        </div>
 
-                      <div className="mt-2">
-                        <Field
-                          type="password"
-                          className="form-control"
-                          placeholder="Enter your Password"
-                          name="password"
-                        />
-                        <ErrorMessage
-                          component="label"
-                          name="password"
-                          className="form-label text-danger"
-                        />
-                      </div>
+                        <div className="mt-2">
+                          <Field
+                            type="password"
+                            className="form-control"
+                            placeholder="Enter your Password"
+                            name="password"
+                          />
+                          <ErrorMessage
+                            component="label"
+                            name="password"
+                            className="form-label text-danger"
+                          />
+                        </div>
 
-                      <div className="mt-2">
-                        <Field
-                          type="password"
-                          className="form-control"
-                          placeholder="Confirm Your Password"
-                          name="cPassword"
-                        />
-                        <ErrorMessage
-                          component="label"
-                          name="cPassword"
-                          className="form-label text-danger"
-                        />
-                      </div>
+                        <div className="mt-2">
+                          <Field
+                            type="password"
+                            className="form-control"
+                            placeholder="Confirm Your Password"
+                            name="cPassword"
+                          />
+                          <ErrorMessage
+                            component="label"
+                            name="cPassword"
+                            className="form-label text-danger"
+                          />
+                        </div>
 
-                      <div className="mt-2">
-                        <Field
-                          as="select"
-                          className="form-control"
-                          name="jobRole"
-                        >
-                          <option value="" disabled>
-                            Select Job Role
-                          </option>
-                          <option value="Developer">Developer</option>
-                          <option value="Tester">Tester</option>
-                        </Field>
-                        <ErrorMessage
-                          component="label"
-                          name="jobRole"
-                          className="form-label text-danger"
-                        />
-                      </div>
+                        <div className="mt-2">
+                          <Field
+                            as="select"
+                            className="form-control"
+                            name="jobRole"
+                          >
+                            <option value="" disabled>
+                              Select Job Role
+                            </option>
+                            <option value="Developer">Developer</option>
+                            <option value="Tester">Tester</option>
+                          </Field>
+                          <ErrorMessage
+                            component="label"
+                            name="jobRole"
+                            className="form-label text-danger"
+                          />
+                        </div>
 
-                      <div className="mt-2">
-                        <Field
-                          type="radio"
-                          name="gender"
-                          value="Male"
-                          id="male"
-                        />{" "}
-                        &nbsp;
-                        <label htmlFor="male">Male</label>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <Field
-                          type="radio"
-                          name="gender"
-                          value="Female"
-                          id="female"
-                        />{" "}
-                        &nbsp;
-                        <label htmlFor="female">Female</label>
-                        <ErrorMessage
-                          component="label"
-                          name="gender"
-                          className="form-label text-danger"
-                        />
-                      </div>
+                        <div className="mt-2">
+                          <Field
+                            type="radio"
+                            name="gender"
+                            value="Male"
+                            id="male"
+                          />{" "}
+                          &nbsp;
+                          <label htmlFor="male">Male</label>
+                          &nbsp;&nbsp;&nbsp;&nbsp;
+                          <Field
+                            type="radio"
+                            name="gender"
+                            value="Female"
+                            id="female"
+                          />{" "}
+                          &nbsp;
+                          <label htmlFor="female">Female</label>
+                          <ErrorMessage
+                            component="label"
+                            name="gender"
+                            className="form-label text-danger"
+                          />
+                        </div>
 
-                      <div className="mt-2">
-                        <Field
-                          type="text"
-                          className="form-control"
-                          placeholder="Enter your 10 Digit Number"
-                          name="phNo"
-                          onKeyDown={(event) => {
-                            if (isNaN(event.key) && event.key !== "Backspace") {
-                              event.preventDefault();
-                            }
-                          }}
-                        />
-                        <ErrorMessage
-                          component="label"
-                          name="phNo"
-                          className="form-label text-danger"
-                        />
-                      </div>
+                        <div className="mt-2">
+                          <Field
+                            type="text"
+                            className="form-control"
+                            placeholder="Enter your 10 Digit Number"
+                            name="phNo"
+                            onKeyDown={(event) => {
+                              if (
+                                isNaN(event.key) &&
+                                event.key !== "Backspace"
+                              ) {
+                                event.preventDefault();
+                              }
+                            }}
+                          />
+                          <ErrorMessage
+                            component="label"
+                            name="phNo"
+                            className="form-label text-danger"
+                          />
+                        </div>
 
-                      <DatePicker
-                        name="date"
-                        dateFormat="MMMM d, yyyy"
-                        selected={values?.date}
-                        onChange={(date) => setFieldValue("date", date)}
-                      />
-                      <div>
-                        <button
-                          className=" w-100 btn btn-primary"
-                          type="submit"
-                        >
-                          Signup
-                        </button>
-                      </div>
-                    </Form>
-                  </>
-                )}
+                        <DatePicker
+                          name="date"
+                          dateFormat="MMMM d, yyyy"
+                          selected={values?.date}
+                          onChange={(date) => setFieldValue("date", date)}
+                        />
+                        <div>
+                          <button
+                            className=" w-100 btn btn-primary"
+                            type="submit"
+                            disabled={!(dirty)}
+                          >
+                            Signup
+                          </button>
+                        </div>
+                      </Form>
+                    </>
+                  );
+                }}
               </Formik>
             </div>
           </div>
